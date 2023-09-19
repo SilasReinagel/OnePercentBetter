@@ -1,10 +1,11 @@
 // @ts-check
+const { GatewayIntentBits } = require('discord.js');
 const Discord = require('discord.js');
-const client = new Discord.Client(undefined);
+const client = new Discord.Client({ intents: [GatewayIntentBits.GuildMessages, GatewayIntentBits.Guilds]});
 const readConfig = require('./config')
 
 const config = readConfig();
-const BOT_TOKEN = config.token;
+const BOT_TOKEN = config.botToken;
 const GUILD_ID = config.guildId;
 const CHANNEL_NAME = config.channelName;
 const UTC_HOUR_OF_DAY = config.utcHourOfDay;
